@@ -1,0 +1,5 @@
+cluster_id,condition,tissue_mass,N_Cells,N_Slides,Niche_Signature,Top_Enriched_Cells (log2FC),Comp_epithelial cell,Comp_fibroblast,Comp_T cell,Comp_myeloid cell,Comp_endothelial cell,Comp_unknown
+H0_stromal_reference,healthy,0.32,320,6,fibroblast + endothelial cell + myeloid cell,fibroblast (1.8) | endothelial cell (1.1) | myeloid cell (0.5),0.08,0.48,0.06,0.15,0.20,0.03
+H1_epithelial_reference,healthy,0.28,280,6,epithelial cell + fibroblast,epithelial cell (2.2) | fibroblast (0.8),0.62,0.18,0.04,0.06,0.06,0.04
+H2_immune_reference,healthy,0.22,220,5,T cell + myeloid cell,T cell (1.7) | myeloid cell (1.4),0.05,0.10,0.46,0.31,0.05,0.03
+H3_vascular_reference,healthy,0.18,180,5,endothelial cell + fibroblast,endothelial cell (2.0) | fibroblast (0.9),0.06,0.22,0.05,0.08,0.56,0.03
