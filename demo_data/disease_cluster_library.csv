@@ -1,0 +1,5 @@
+cluster_id,condition,tissue_mass,N_Cells,N_Slides,Niche_Signature,Top_Enriched_Cells (log2FC),Comp_epithelial cell,Comp_fibroblast,Comp_T cell,Comp_myeloid cell,Comp_endothelial cell,Comp_unknown
+D0_epithelial_expanded,disease,0.36,360,5,epithelial cell + fibroblast + myeloid cell,epithelial cell (2.6) | fibroblast (1.0) | myeloid cell (0.7),0.68,0.12,0.03,0.10,0.04,0.03
+D1_inflamed_stroma,disease,0.27,270,5,fibroblast + myeloid cell + T cell,fibroblast (1.5) | myeloid cell (1.4) | T cell (0.9),0.08,0.38,0.18,0.26,0.06,0.04
+D2_vascular_remodeled,disease,0.21,210,4,endothelial cell + myeloid cell + fibroblast,endothelial cell (1.8) | myeloid cell (1.2) | fibroblast (0.8),0.05,0.18,0.07,0.20,0.45,0.05
+D3_poorly_explained_unknown,disease,0.16,160,3,unknown + myeloid cell + epithelial cell,unknown (2.4) | myeloid cell (1.0) | epithelial cell (0.6),0.18,0.08,0.04,0.22,0.06,0.42
