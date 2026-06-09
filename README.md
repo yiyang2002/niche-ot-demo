@@ -1,25 +1,46 @@
-# Niche OT Demo
+# Niche OT Remodeling
 
-This repository is a standalone demonstration mirror of the optimal-transport (OT) niche-library remodeling analysis from a larger spatial transcriptomics research codebase.
+Niche OT Remodeling is an analysis workflow for aligning condition-specific
+niche cluster libraries with an unbalanced optimal-transport model. It compares
+reference and perturbed tissue-state libraries using cell-type composition
+features and cluster mass, then summarizes source expansion, reduction, branch
+structure, target residual mass, and composition remodeling across a penalty
+path.
 
-The goal is to show the analysis shape without publishing the original project, real datasets, generated outputs, or repository history. The demo aligns two synthetic niche cluster libraries representing different conditions. Each cluster has cell-type composition features (`Comp_*`) and a tissue-mass proxy (`tissue_mass`, mirrored by `N_Cells` for compatibility with the current helper code).
+## Repository Layout
 
-## Contents
+- `niche_ot_demo.ipynb`: transport-remodeling analysis notebook.
+- `transport_remodeling.py`: helper module for harmonization, composition-cost
+  construction, unbalanced transport, event summaries, and plotting.
+- `demo_data/healthy_cluster_library.csv`: synthetic reference niche library.
+- `demo_data/disease_cluster_library.csv`: synthetic perturbed-condition niche
+  library.
+- `requirements.txt`: minimal Python dependencies for inspecting or running the
+  notebook.
 
-- `transport_remodeling.py`: current OT helper module copied from the research project.
-- `niche_ot_demo.ipynb`: one demo notebook derived from the canonical current OT notebook, with outputs stripped and paths pointed at `demo_data/`.
-- `demo_data/healthy_cluster_library.csv`: synthetic healthy/reference niche cluster library.
-- `demo_data/disease_cluster_library.csv`: synthetic disease/target niche cluster library.
+## Input Schema
 
-## Demo Data Schema
-
-The CSV inputs use the same cluster-level fields expected by the helper:
+The included CSV files use the cluster-level schema expected by the analysis:
 
 - `cluster_id`: niche cluster identifier.
-- `N_Cells`: cluster mass used by the current helper code.
-- `tissue_mass`: normalized synthetic tissue mass for reader-facing clarity.
-- `N_Slides`: synthetic recurrence count.
-- `Niche_Signature` and `Top_Enriched_Cells (log2FC)`: readable labels.
-- `Comp_*`: cell-type proportions used to compute composition distance.
+- `N_Cells`: cluster mass used by the transport helper.
+- `tissue_mass`: normalized tissue-mass proxy included for readability.
+- `N_Slides`: recurrence count across synthetic samples.
+- `Niche_Signature`: short text label for the cluster state.
+- `Top_Enriched_Cells (log2FC)`: readable cell-type enrichment summary.
+- `Comp_*`: cell-type proportions used to build the composition-distance cost.
 
-This repository is for demonstration and inspection. It is not the full research pipeline and does not include the private source datasets.
+## Workflow
+
+The notebook follows the transport-remodeling workflow:
+
+1. Configure reference and perturbed cluster-library inputs.
+2. Harmonize cell-type labels and load cluster metrics.
+3. Build aligned composition matrices, masses, and pairwise costs.
+4. Solve the default unbalanced OT model.
+5. Summarize source and target remodeling events.
+6. Inspect penalty-path behavior and a source-regularized diagnostic run.
+7. Review selected-source composition remodeling across the sweep.
+
+The bundled data are synthetic and are intended to make the complete notebook
+structure inspectable without external datasets.
